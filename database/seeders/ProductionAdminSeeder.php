@@ -11,9 +11,9 @@ class ProductionAdminSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Admin',
-            'email' => 'admin@rent-office-main-suoixw.laravel.cloud',
-            'password' => Hash::make('your-secure-password'),
+            'name' => env('ADMIN_NAME', 'Admin'),
+            'email' => env('ADMIN_EMAIL', 'admin@rent-office-main-suoixw.laravel.cloud'),
+            'password' => Hash::make(env('ADMIN_PASSWORD', 'your-secure-password')),
             'email_verified_at' => now(),
             'is_admin' => true,
         ]);
