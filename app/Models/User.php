@@ -53,8 +53,6 @@ class User extends Authenticatable
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->is_admin &&
-            $this->hasVerifiedEmail() &&
-            str_ends_with($this->email, '@rent-office-main-suoixw.laravel.cloud');
+        return $this->is_admin && $this->hasVerifiedEmail();
     }
 }
