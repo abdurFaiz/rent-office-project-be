@@ -8,15 +8,15 @@ use Illuminate\Support\Facades\Hash;
 
 class CreateAdminUser extends Command
 {
-    protected $signature = 'admin:create';
+    protected $signature = 'admin:create {name} {--email=} {--password=}';
     protected $description = 'Create a new admin user';
 
     public function handle()
     {
-        $name = $this->ask('What is the admin name?');
-        $email = $this->ask('What is the admin email?');
-        $password = $this->secret('What is the admin password?');
-
+        $name = $this->argument('name');
+        $email = $this->option('email');
+        $password = $this->option('password');
+        
         $user = User::create([
             'name' => $name,
             'email' => $email,
