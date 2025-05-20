@@ -1,9 +1,9 @@
 [build]
 builder = "nixpacks"
-buildCommand = "composer install --no-interaction --no-dev --prefer-dist && php artisan config:cache && php artisan optimize:clear && php artisan cache:clear"
+buildCommand = "composer install --no-interaction --no-dev --prefer-dist && php artisan config:clear && php artisan optimize:clear && php artisan cache:clear && chmod +x bootstrap-railway.sh"
 
 [deploy]
-startCommand = "php artisan serve --host=0.0.0.0 --port=$PORT"
+startCommand = "bash bootstrap-railway.sh"
 healthcheckPath = "/up"
 healthcheckTimeout = 100
 restartPolicyType = "on_failure"

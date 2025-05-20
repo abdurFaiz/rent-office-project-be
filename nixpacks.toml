@@ -14,8 +14,9 @@ cmds = [
   "php artisan storage:link || true",
   "chmod -R 777 storage/",
   "chmod -R 777 public/",
+  "php artisan db:wipe --force || echo 'DB wipe failed, continuing'",
   "php artisan migrate --force || echo 'Migration failed, continuing anyway'"
 ]
 
 [start]
-cmd = "php artisan serve --host=0.0.0.0 --port=${PORT:-8000}" 
+cmd = "php artisan config:clear && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}" 
