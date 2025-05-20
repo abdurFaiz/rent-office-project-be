@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "composer install && php artisan migrate --force"
+buildCommand = "composer install --no-interaction --no-dev --prefer-dist && php artisan config:cache && php artisan optimize:clear && php artisan cache:clear"
 
 [deploy]
 startCommand = "php artisan serve --host=0.0.0.0 --port=$PORT"
