@@ -6,6 +6,7 @@ cmds = ["composer install --no-interaction --no-dev --prefer-dist"]
 
 [phases.build]
 cmds = [
+  "php artisan config:clear",
   "php artisan optimize:clear",
   "php artisan config:clear",
   "php artisan route:clear",

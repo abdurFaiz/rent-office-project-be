@@ -1,4 +1,5 @@
 #!/bin/bash
+php artisan config:clear
 
 # Menjalankan migrasi database
 php artisan migrate --force
